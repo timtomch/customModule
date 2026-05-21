@@ -94,18 +94,18 @@ custom package. For help on working with custom packages, refer to the [ExLibris
 /*CLEAR CUSTOM COLOURS*/
  
 .ocls-clear-Yes{
-    background-color: #e7f4e4;
-    color: #212121;              
+    background-color: #e7f4e4!important;
+    color: #212121!important;              
 }
 
 .ocls-clear-No{
-    background-color: #f9dede;
-    color: #212121;
+    background-color: #f9dede!important;
+    color: #212121!important;
 }
 
 .ocls-clear-Ask{
-    background-color: #fff1d2;
-    color: #212121;       
+    background-color: #fff1d2!important;
+    color: #212121!important;       
 }
 ```
 
