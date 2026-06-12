@@ -1,0 +1,201 @@
+.babelio-noteglobale {
+    font-size: 0.8em;
+}
+
+.babelio-noteglobale div {
+    display: inline-block;
+}
+.babelio-rating {
+    display: flex;
+    align-items: center;
+}
+
+.babelio-rating div.checked::before {
+    content: "\2B51";
+    color: var(--sys-primary);
+}
+
+.babelio-rating div.unchecked::before {
+    content: "\2B51";
+    color: var(--darkBG);
+}
+
+#babelio-full {
+    font-size: small;
+    background-color: var(--sys-inverse-on-surface);
+    margin: 20px -10px;
+    padding: 10px;
+}
+
+#babelio-full h4 {
+    margin-top: 20px;
+}
+
+.babelio-open {
+    max-height: none;
+    margin-bottom: 20px;
+}
+
+.babelio-closed {
+    max-height: 100px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.babelio-critique,
+.babelio-citation {
+    clear: both;
+    border-bottom: 1px var(--divider) solid;
+    margin-bottom: 5px;
+    padding-bottom: 10px;
+}
+
+.babelio-avatar {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.babelio-avatar img {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    margin-right: 8px;
+    float: left;
+}
+
+.babelio-critique-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.babelio-critique-header .babelio-date {
+    float: none; /* override previous float */
+    color: var(--lightText);
+}
+
+.babelio-critique-header .babelio-username {
+    color: var(--sys-primary);
+    font-weight: bold;
+}
+
+.babelio-critique-content {
+    width: 100%;
+    display: inline-block;
+    max-width: 90%;
+    vertical-align: top;
+}
+
+/* Inline modal styles */
+.babelio-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 1rem;
+}
+
+.babelio-modal {
+  background: var(--lightBG);
+  width: 100%;
+  max-width: 900px;
+  max-height: 85vh;
+  overflow: auto;
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  position: relative;
+  box-shadow: 0 10px 30px var(--darkShadow);
+}
+
+.babelio-modal-close {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  background: transparent;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.babelio-modal-body {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.babelio-nav {
+    overflow: hidden;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+.babelio-nav .babelio-back {
+    float: left;
+    padding: 5px 0px;
+}
+
+.babelio-nav .babelio-forward {
+    float: right;
+    padding: 5px 0px;
+}
+
+.babelio a {
+    color: var(--sys-primary);
+    cursor: pointer;
+}
+
+.babelio-section {
+    font-size: 1.2em;
+    padding: 15px 0px 15px 0px;
+}
+
+.babelio-citation div {
+    text-align: right;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.babelio-citation blockquote {
+    font-style: italic;
+}
+
+.babelio-citation blockquote:before {
+    position: absolute;
+    margin-left: -30px;
+    margin-top: -10px;
+    font-size: 4em;
+    line-height: 1;
+    content: "\201C";
+    color: var(--lightText);
+}
+
+.babelio-citation blockquote:after {
+    float: right;
+    font-size: 4em;
+    line-height: 1;
+    content: "\201D";
+    color: var(--lightText);
+}
+
+.babelio-prix {
+    padding-left: 15px;
+    vertical-align: middle;
+}
+
+.babelio-prix > div {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.babelio-icon {
+    width: 16px;
+    height: 16px;
+    flex: 0 0 16px;
+}

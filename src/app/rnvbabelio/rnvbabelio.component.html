@@ -1,0 +1,18 @@
+<div class="babelio" *ngIf="isFullDisplay && rnvBabelioService.babelioData">
+    <!-- Babelio: note moyenne -->
+    <div class="babelio-noteglobale" *ngIf="rnvBabelioService.babelioData.note">
+        <div class="babelio-rating">{{ t('babelio.rating') }}:&nbsp;
+            <div *ngFor="let n of [1, 2, 3, 4, 5]" [ngClass]="(n <= +(rnvBabelioService.babelioData.note) + 0.5) ? 'checked' : 'unchecked'"></div>
+        </div>
+        {{rnvBabelioService.babelioData.note}}/5 
+        <span *ngIf="rnvBabelioService.babelioData.nb_notes > 0">
+            ({{rnvBabelioService.babelioData.nb_notes}} {{ t('babelio.ratings') }}).
+        </span>
+        <span *ngIf="rnvBabelioService.babelioData.critiques_notice.length > 0; else noReviews">
+            <a (click)="scrollToBabelMain()">{{ t('babelio.see_reviews') }}.</a>
+        </span>
+    </div>
+</div>
+<ng-template #noReviews>
+    {{ t('babelio.external_source') }} <a target="_blank" [href]="'https://www.babelio.com/livres/-/' + rnvBabelioService.babelioData.id_oeuvre">Babelio.com</a>
+</ng-template>

@@ -3,10 +3,11 @@ import { Directive, ElementRef, Input, OnChanges, Renderer2 } from '@angular/cor
 declare const __webpack_public_path__: string;
 
 @Directive({
-  selector: 'img[src],source[src],link[href],script[src],a[href]',
+  selector: '[assetsPublicPath]',
   standalone: true,
 })
 export class AssetsPublicPathDirective implements OnChanges {
+  @Input() assetsPublicPath?: string | boolean;
   @Input() src?: string;
   @Input() href?: string;
 
