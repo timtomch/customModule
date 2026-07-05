@@ -1,4 +1,4 @@
-<div class="babelio" *ngIf="isFullDisplay && rnvBabelioService.babelioData">
+<div class="babelio" *ngIf="isFullDisplay && rnvBabelioService.babelioData && (rnvBabelioService.babelioData.nb_notes > 0 || rnvBabelioService.babelioData.nb_critiques > 0 || rnvBabelioService.babelioData.nb_critiques_pro > 0 || rnvBabelioService.babelioData.nb_citations > 0)">
     <!-- Babelio: note moyenne -->
     <div class="babelio-noteglobale" *ngIf="rnvBabelioService.babelioData.note">
         <div class="babelio-rating">{{ t('babelio.rating') }}:&nbsp;
