@@ -1,4 +1,4 @@
-import { Component, HostListener, inject } from '@angular/core';
+import { Component, HostListener, Inject, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RnvBabelioService } from '../services/rnvbabelio.service';
 import { Subscription } from 'rxjs';
@@ -25,7 +25,13 @@ export class RNVBabelioFullComponent {
   private languageSub?: Subscription;
   private store = inject(Store);
 
-  constructor(public rnvBabelioService: RnvBabelioService, private translateService: TranslateService) {}
+  constructor(
+    public rnvBabelioService: RnvBabelioService, 
+    private translateService: TranslateService,
+    @Inject('MODULE_PARAMETERS') public moduleParameters: any) {
+      rnvBabelioService.applyConfig(this.moduleParameters);
+      console.log('Loaded module parameters for RNVBabelioComponent:', this.moduleParameters);
+    }
   
   // Limit the number of items displayed outside of modal window
   public displayLimit = 3;

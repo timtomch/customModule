@@ -1,4 +1,4 @@
-import { Component, DoCheck, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, DoCheck, Input, OnChanges, OnInit, SimpleChanges, Inject } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
 import { RnvBabelioService } from '../services/rnvbabelio.service';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
@@ -17,8 +17,13 @@ export class RNVBabelioComponent implements OnInit, OnChanges, DoCheck {
   constructor(
     public rnvBabelioService: RnvBabelioService,
     private location: Location,
-    private translateService: TranslateService
-  ) {}
+    private translateService: TranslateService,
+    @Inject('MODULE_PARAMETERS') public moduleParameters: any
+  ) {
+    rnvBabelioService.applyConfig(this.moduleParameters);
+
+    console.log('Loaded module parameters for RNVBabelioComponent:', this.moduleParameters);
+  }
   
   // Restrict Babelio content to fulldisplay pages only
   get isFullDisplay(): boolean {

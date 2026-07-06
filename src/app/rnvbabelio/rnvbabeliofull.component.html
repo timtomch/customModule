@@ -58,7 +58,7 @@
         </div>
 
         <!-- Babelio: citations (direct display) -->
-        <div *ngIf="(rnvBabelioService.babelioData.citations_notice && rnvBabelioService.babelioData.citations_notice.length > 0)">
+        <div *ngIf="(rnvBabelioService.displayCitations && rnvBabelioService.babelioData.citations_notice && rnvBabelioService.babelioData.citations_notice.length > 0)">
             <div class="babelio-section">{{ t('babelio.citations.title') }} ({{rnvBabelioService.babelioData.citations_notice.length}} {{ t('babelio.nav.of') }} {{rnvBabelioService.babelioData.nb_citations}}<span *ngIf="rnvBabelioService.babelioData.nb_citations > displayLimit"> | <a (click)="babelthequeDisplayCitations()">{{ t('babelio.nav.display_all') }}</a></span>)</div>
             <ng-container *ngFor="let citation of rnvBabelioService.babelioData.citations_notice">
                 <ng-container *ngTemplateOutlet="citationTpl; context: { $implicit: citation }"></ng-container>

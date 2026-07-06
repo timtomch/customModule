@@ -21,10 +21,46 @@ export class RnvBabelioService {
 
   public isbn: string = '';
   public title: string = '';
+  public displayCitations: boolean = true;
+  public ApiGatewayUrl: string = '';
+
+  applyConfig(config: { displayCitations?: unknown; ApiGatewayUrl?: unknown } | null | undefined): void {
+    if (!config) {
+      return;
+    }
+
+    if (config.displayCitations !== undefined && config.displayCitations !== null) {
+      this.displayCitations = this.toBoolean(config.displayCitations, true);
+    }
+
+    if (config.ApiGatewayUrl !== undefined && config.ApiGatewayUrl !== null) {
+      this.ApiGatewayUrl = String(config.ApiGatewayUrl).trim();
+    }
+  }
+
+  private toBoolean(value: unknown, fallback: boolean): boolean {
+    if (typeof value === 'boolean') {
+      return value;
+    }
+
+    if (typeof value === 'string') {
+      const normalized = value.trim().toLowerCase();
+
+      if (normalized === 'true') {
+        return true;
+      }
+
+      if (normalized === 'false') {
+        return false;
+      }
+    }
+
+    return fallback;
+  }
 
   // Function to fetch data from Babelio API
   getBabelioData(isbn: string, type: string = 'all', page: number = 1): Observable<any> {
-    let baseUrl = 'https://assets.renouvaud.ch/babelio/babelio_gateway.php';
+    let baseUrl = this.ApiGatewayUrl;
 
     let url = '';
 
